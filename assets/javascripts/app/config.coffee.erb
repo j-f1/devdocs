@@ -13,3 +13,4 @@ app.config =
   version: <%= Time.now.to_i %>
   release: <%= Time.now.utc.httpdate.to_json %>
   mathml_stylesheet: '<%= App.cdn_origin %>/mathml.css'
+  worker_path: '<%= asset_path 'worker.js' %>'

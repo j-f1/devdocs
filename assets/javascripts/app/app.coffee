@@ -14,6 +14,14 @@
     @el = $('._app')
     @localStorage = new LocalStorageStore
     @appCache = new app.AppCache if app.AppCache.isEnabled()
+    if 'serviceWorker' of navigator
+      navigator.serviceWorker
+        .register @config.worker_path
+        .then (worker) ->
+          @worker = worker
+        .catch (err) ->
+          # FIXME: ???
+          alert(err.stack)
     @settings = new app.Settings
     @db = new app.DB()
 
